@@ -1,0 +1,54 @@
+{
+  "name": "yarn-deps-check",
+  "version": "1.0.0",
+  "description": "Check whether dependencies have been installed.",
+  "repository": "https://github.com/Macil/yarn-deps-check",
+  "author": "Chris Cowan <agentme49@gmail.com>",
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "bin": "dist/src/bin/depsCheck.js",
+  "scripts": {
+    "prepare": "rimraf dist && tsc && chmod +x ./dist/src/bin/depsCheck.js",
+    "watch": "tsc -w",
+    "test": "yarn lint && jest",
+    "watch-test": "jest --watchAll",
+    "prettier-all": "prettier --write '**/*.{ts,json}'",
+    "lint": "prettier-check '**/*.{ts,json}'"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/dist/",
+      "/node_modules/"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "@types/lodash": "^4.14.116",
+    "@types/node": "~10.9.0",
+    "@types/pkg-dir": "^2.0.0",
+    "babel-core": "^6.26.3",
+    "husky": "^1.1.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.14.3",
+    "prettier-check": "^2.0.0",
+    "pretty-quick": "^1.7.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.3",
+    "typescript": "~3.0.3"
+  },
+  "dependencies": {
+    "@yarnpkg/lockfile": "^1.1.0",
+    "lodash": "^4.17.11",
+    "pkg-dir": "^3.0.0"
+  }
+}
