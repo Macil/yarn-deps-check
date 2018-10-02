@@ -32,3 +32,8 @@ if (...) {
   depsCheck();
 }
 ```
+
+## Types
+
+[TypeScript](https://www.typescriptlang.org/) type definitions for this module are included!
+The type definitions won't require any configuration to use.
