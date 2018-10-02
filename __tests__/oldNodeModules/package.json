@@ -1,0 +1,11 @@
+{
+  "name": "good",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "pkg-dir": "^3.0.0"
+  }
+}
