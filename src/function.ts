@@ -27,11 +27,6 @@ function findRootPackageDirectory(): string {
 export default function depsCheck(
   rootPkgDir: string = findRootPackageDirectory()
 ) {
-  const yarnLock = lockfile.parse(
-    fs.readFileSync(resolve(rootPkgDir, 'yarn.lock'), 'utf8')
-  );
-  const yarnLockAllPackages = Object.keys(yarnLock.object);
-
   const yarnIntegrity = JSON.parse(
     fs.readFileSync(
       resolve(rootPkgDir, 'node_modules', '.yarn-integrity'),
@@ -39,6 +34,11 @@ export default function depsCheck(
     )
   );
   const yarnIntegrityAllPackages = Object.keys(yarnIntegrity.lockfileEntries);
+
+  const yarnLock = lockfile.parse(
+    fs.readFileSync(resolve(rootPkgDir, 'yarn.lock'), 'utf8')
+  );
+  const yarnLockAllPackages = Object.keys(yarnLock.object);
 
   const inYarnLockOnly = difference(
     yarnLockAllPackages,
