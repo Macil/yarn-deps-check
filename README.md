@@ -35,6 +35,8 @@ if (...) {
 }
 ```
 
+The function will throw an error if the dependency check fails.
+
 ## Types
 
 [TypeScript](https://www.typescriptlang.org/) type definitions for this module are included!
