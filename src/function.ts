@@ -27,12 +27,19 @@ function findRootPackageDirectory(): string {
 export default function depsCheck(
   rootPkgDir: string = findRootPackageDirectory()
 ) {
-  const yarnIntegrity = JSON.parse(
-    fs.readFileSync(
-      resolve(rootPkgDir, 'node_modules', '.yarn-integrity'),
-      'utf8'
-    )
+  const yarnIntegrityFile = resolve(
+    rootPkgDir,
+    'node_modules',
+    '.yarn-integrity'
   );
+
+  if (!fs.existsSync(yarnIntegrityFile)) {
+    throw new Error(
+      `Dependencies check failed. Please run "yarn" to fix. The yarn integrity file was not found at "${yarnIntegrityFile}".`
+    );
+  }
+
+  const yarnIntegrity = JSON.parse(fs.readFileSync(yarnIntegrityFile, 'utf8'));
   const yarnIntegrityAllPackages = Object.keys(yarnIntegrity.lockfileEntries);
 
   const yarnLock = lockfile.parse(
