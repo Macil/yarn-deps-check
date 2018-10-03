@@ -8,6 +8,7 @@ build system to enforce that builds are done with the current versions of your
 dependencies. This protects against the case where a developer `git pull`s some
 commits including changes to `yarn.lock` and tries to build or run the
 application before running `yarn` to update the node_modules directory of
+dependencies, which would otherwise run with the incorrect versions of the
 dependencies.
 
 ## Usage
