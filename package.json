@@ -1,6 +1,6 @@
 {
   "name": "yarn-deps-check",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Check whether dependencies have been installed.",
   "repository": "https://github.com/Macil/yarn-deps-check",
   "author": "Chris Cowan <agentme49@gmail.com>",
