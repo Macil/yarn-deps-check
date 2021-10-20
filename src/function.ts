@@ -63,7 +63,7 @@ export default function depsCheck(
     assign(err, {
       inYarnLockOnly,
       inYarnIntegrityOnly,
-      mismatch
+      mismatch,
     });
     throw err;
   }

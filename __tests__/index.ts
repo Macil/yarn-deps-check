@@ -14,7 +14,7 @@ it('handles old node_modules', () => {
   try {
     depsCheck(resolve(__dirname, 'oldNodeModules'));
     throw new Error('depsCheck did not throw');
-  } catch (e) {
+  } catch (e: any) {
     expect(e.mismatch.length).toBe(7);
     expect(e.inYarnLockOnly.length).toBe(7);
     expect(e.inYarnIntegrityOnly.length).toBe(0);
